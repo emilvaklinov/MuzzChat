@@ -15,6 +15,7 @@ struct MessageBubbleView: View {
     
     @State private var scale: CGFloat = 0.5
     @State private var opacity: Double = 0
+    @State private var yOffset: CGFloat = 300 // Start from bottom (input bar position)
     
     var body: some View {
         HStack(alignment: .bottom, spacing: 8) {
@@ -24,6 +25,7 @@ struct MessageBubbleView: View {
                 messageBubble
                     .scaleEffect(isAnimating ? scale : 1.0)
                     .opacity(isAnimating ? opacity : 1.0)
+                    .offset(y: isAnimating ? yOffset : 0) // Slide up from input bar
             } else {
                 
                 messageBubble
@@ -34,10 +36,11 @@ struct MessageBubbleView: View {
         .padding(.vertical, isGrouped ? 3 : 8)
         .onAppear {
             if isAnimating {
-                // iMessage-style animation
-                withAnimation(.spring(response: 0.3, dampingFraction: 0.6)) {
-                    scale = 1.0
-                    opacity = 1.0
+                // iMessage-style animation: slide up from input bar + scale + fade
+                withAnimation(.spring(response: 0.5, dampingFraction: 0.7)) {
+                    yOffset = 0      // Move to final position
+                    scale = 1.0      // Grow to full size
+                    opacity = 1.0    // Fade in
                 }
             }
         }
