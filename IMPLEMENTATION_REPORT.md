@@ -684,8 +684,6 @@ The app is ready for demo and can be extended with the outlined improvements for
 For questions about implementation decisions, architecture choices, or to discuss the code:
 
 **GitHub:** https://github.com/emilvaklinov/MuzzChat  
-**Email:** [Your email]  
-**LinkedIn:** [Your LinkedIn]
 
 ---
 
