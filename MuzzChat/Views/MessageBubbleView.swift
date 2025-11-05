@@ -72,8 +72,8 @@ struct MessageBubbleView: View {
                         .frame(width: 16, height: 12)
                     }
                 }
-                .padding(.horizontal, 16)
-                .padding(.vertical, 12)
+                .padding(.horizontal, 10)
+                .padding(.vertical, 10)
                 .background(
                     CustomRoundedCorner(
                         topLeft: 20,
